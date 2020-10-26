@@ -1,6 +1,7 @@
 <?php
 include('../includes/header.php');
 include('../includes/db.php');
+session_start();
 ?>
 <div class="container-fluid">
     <div class="row my-4">
@@ -13,8 +14,8 @@ include('../includes/db.php');
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Nom & Prénom: <span class="text-muted"> Zakaria Batty</span></h5>
-                            <p class="card-text">Email: zakaria@gmail.com</p>
+                            <h5 class="card-title">Nom & Prénom: <span class="text-muted"> <?php echo $_SESSION['nom'] ;?>  <?php echo $_SESSION['prenom'] ;?></span></h5>
+                            <p class="card-text">Email: <?php echo $_SESSION['email'] ;?></p>
                             <p class="card-text"><small class="text-muted">date de naissance: 09/09/1997</small></p>
                         </div>
                     </div>
@@ -44,6 +45,9 @@ include('../includes/db.php');
                                 </a>
                                 <a href="?editreply=les" class="btn btn-sm btn-primary mr-2 mb-2 float-right">Répondre
                                     <i class="fas fa-reply"></i>
+                                </a>
+                                <a href="../index.php" class="btn btn-sm btn-primary mr-2 mb-2 float-right">déconnexion
+                                    <i class="fas fa-sign-out"></i>
                                 </a>
                             </ul>
                         </div>
@@ -75,7 +79,7 @@ include('../includes/db.php');
                                                     <td><?= $data1['Typeposte'] ?></td>
                                                     <td><?= $data1['Intituleposte'] ?></td>
                                                     <td>
-                                                        <a href="CvZakaria_Batty.pdf" class="btn bnt-sm btn-info"><i class="fas fa-folder-open">Ouvert</i></a>
+                                                        <a href="<?= $data1['cv']; ?>" class="btn bnt-sm btn-info"><i class="fas fa-folder-open">Ouvert</i></a>
                                                     </td>
                                                     <td class="d-flex flex-row">
                                                         <form method="post" class="mr-1" action="php.php">

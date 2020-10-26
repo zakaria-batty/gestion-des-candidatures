@@ -1,6 +1,5 @@
 <?php
 include('includes/header.php');
-include('includes/db.php');
 ?>
 <div class="container">
     <div class="row my-4">
@@ -15,7 +14,7 @@ include('includes/db.php');
                         echo "<div class='alert alert-success'>le demande D'inscription a été succès</div>";
                     endif;
                     if (isset($_GET['msg']) && $_GET['msg'] == 'err') :
-                        echo "<div class='alert alert-danger'>err</div>";
+                        echo "<div class='alert alert-danger'>mauvais nom d'utilisateur ou mot de passe</div>";
                     endif;
                     ?>
                     <form method="post" class="mr-1" action="checklog.php">
@@ -31,7 +30,17 @@ include('includes/db.php');
                             </div>
                             <input type="password" name="password" placeholder="Mot de passe" class="form-control" required>
                         </div>
-                        <button type="submit" name="submit" class="btn btn-sm btn-primary">Connexion</button>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-user-shield text-primary"></i> </div>
+                            </div>
+                            <select name="profile" class="custom-select">
+                                <option value="RH">RH</option>
+                                <option value="Condida">Condida</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" name="login" class="btn btn-sm btn-primary">Connexion</button>
                     </form>
 
                 </div>

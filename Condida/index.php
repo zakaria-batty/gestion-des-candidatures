@@ -16,8 +16,15 @@ session_start();
                     <a href="?editaccount=true" class="btn btn-sm btn-primary mr-2 mb-2">
                         <i class="fas fa-user"></i>
                     </a>
-
+                    <a href="../index.php" class="btn btn-sm btn-primary mr-2 mb-2 float-right">déconnexion
+                        <i class="fas fa-sign-out"></i>
+                    </a>
                 </div>
+                <?php if (isset($_GET['message']) && $_GET['message'] == 'supprimer') :
+                    echo "<div class='alert alert-danger'>le demande a été supprimé avec succès</div>";
+                elseif (isset($_GET['message']) && $_GET['message'] == 'err') :
+                    echo "<div class='alert alert-danger'>Veuillez réessayer</div>";
+                endif; ?>
 
                 <div class="card-body">
                     <!-------------------------------------------- section account--------------------------------------------------- -->
@@ -32,9 +39,9 @@ session_start();
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title">Nom: <span class="text-muted"><?php echo $_SESSION['nom'] ;?></span></h5>
-                                                <h5 class="card-title">Prénom: <span class="text-muted"><?php echo $_SESSION['prenom'] ; ?></span></h5>
-                                                <p class="card-text">Email: <?php echo $_SESSION['email'] ; ?></p>
+                                                <h5 class="card-title">Nom: <span class="text-muted"><?php echo $_SESSION['nom']; ?></span></h5>
+                                                <h5 class="card-title">Prénom: <span class="text-muted"><?php echo $_SESSION['prenom']; ?></span></h5>
+                                                <p class="card-text">Email: <?php echo $_SESSION['email']; ?></p>
                                                 <p class="card-text"><small class="text-muted">date de naissance: 09/09/1997</small></p>
                                             </div>
                                         </div>
@@ -105,7 +112,7 @@ session_start();
                                 ?>
                                     <div class="card mt-4">
                                         <div class="card-header">
-                                            stage
+                                        <?= $data2['ville'] ?>
                                             <div class="float-right">
                                                 <?= $data2['time'] ?>
                                             </div>
@@ -116,7 +123,7 @@ session_start();
                                                 <h5 class="text-title" style="font-size: smaller;">Ville: <span class="text-muted"><?= $data2['ville'] ?></span></h5>
                                             </div>
                                         </div>
-                                        <form class="formule" action="php.php" method="post">
+                                        <form class="formule" action="php.php" method="post" enctype="multipart">
                                             <div class="card-footer">
 
                                                 <div class="form-row">
@@ -130,9 +137,13 @@ session_start();
                                                         <label for="prenom">Prénom</label>
                                                         <input type="text" name="prenom" value="" class="form-control" placeholder="Entré le nom">
                                                     </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="prenom">link cv</label>
+                                                        <input type="link" name="cv" value="" class="form-control" placeholder="link cv pdf">
+                                                    </div>
                                                     <!-- <div class="custom-file">
-                                                        <input type="file" name="cv" class="custom-file-input" id="profilepic">
-                                                        <label class="custom-file-label" for="profilepic">Download Cv Pdf...</label>
+                                                        <input type="file" name="cv" class="custom-file-input">
+                                                        <label class="custom-file-label" for="cv">Choose Profile Pic...</label>
                                                     </div> -->
                                                 </div>
                                                 <button class="btn btn-primary btn-block my-2" type="submit" name="poste">Posté</button>
