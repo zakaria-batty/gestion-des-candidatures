@@ -20,8 +20,8 @@ session_start();
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </div>
-                <?php if (isset($_GET['message']) && $_GET['message'] == 'supprimer') :
-                    echo "<div class='alert alert-danger'>le demande a été supprimé avec succès</div>";
+                <?php if (isset($_GET['message']) && $_GET['message'] == 'poste') :
+                    echo "<div class='alert alert-success'>le demande a été envoyé avec  succès</div>";
                 elseif (isset($_GET['message']) && $_GET['message'] == 'err') :
                     echo "<div class='alert alert-danger'>Veuillez réessayer</div>";
                 endif; ?>
@@ -123,28 +123,24 @@ session_start();
                                                 <h5 class="text-title" style="font-size: smaller;">Ville: <span class="text-muted"><?= $data2['ville'] ?></span></h5>
                                             </div>
                                         </div>
-                                        <form class="formule" action="php.php" method="post" enctype="multipart">
+                                        <form class="formule" action="php.php" method="post" enctype="multipart/form-data">
                                             <div class="card-footer">
 
                                                 <div class="form-row">
                                                     <input type="hidden" name="id" value="<?= $data2['id'] ?>">
                                                     <div class="form-group col-md-6">
                                                         <label for="Nom">Nom</label>
-                                                        <input type="text" name="Nom" value="" class="form-control" placeholder="Entré le nom">
+                                                        <input type="text" name="Nom" value="" class="form-control" placeholder="Entré le nom" required>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label for="prenom">Prénom</label>
-                                                        <input type="text" name="prenom" value="" class="form-control" placeholder="Entré le nom">
+                                                        <input type="text" name="prenom" value="" class="form-control" placeholder="Entré le prenom" required>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="prenom">link cv</label>
-                                                        <input type="link" name="cv" value="" class="form-control" placeholder="link cv pdf">
+                                                    <div class="custom-file">
+                                                        <input type="file" name="cv" class="custom-file-input" required>
+                                                        <label class="custom-file-label" for="cv">Choose Cv...</label>
                                                     </div>
-                                                    <!-- <div class="custom-file">
-                                                        <input type="file" name="cv" class="custom-file-input">
-                                                        <label class="custom-file-label" for="cv">Choose Profile Pic...</label>
-                                                    </div> -->
                                                 </div>
                                                 <button class="btn btn-primary btn-block my-2" type="submit" name="poste">Posté</button>
                                             </div>

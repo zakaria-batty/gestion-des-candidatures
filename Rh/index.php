@@ -79,7 +79,7 @@ session_start();
                                                     <td><?= $data1['Typeposte'] ?></td>
                                                     <td><?= $data1['Intituleposte'] ?></td>
                                                     <td>
-                                                        <a href="<?= $data1['cv']; ?>" class="btn bnt-sm btn-info"><i class="fas fa-folder-open">Ouvert</i></a>
+                                                        <a href="../image/<?= $data1['cv'] ?>" target="_blank" class="btn bnt-sm btn-info"><i class="fas fa-folder-open">Ouvert</i></a>
                                                     </td>
                                                     <td class="d-flex flex-row">
                                                         <form method="post" class="mr-1" action="php.php">
