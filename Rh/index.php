@@ -43,7 +43,7 @@ session_start();
                                 <a href="?edithome=true" class="btn btn-sm btn-primary mr-2 mb-2">Home
                                     <i class="fas fa-home"></i>
                                 </a>
-                                <a href="?editreply=les" class="btn btn-sm btn-primary mr-2 mb-2 float-right">Répondre
+                                <a href="?editreply=tru" class="btn btn-sm btn-primary mr-2 mb-2 float-right">Répondre
                                     <i class="fas fa-reply"></i>
                                 </a>
                                 <a href="../index.php" class="btn btn-sm btn-primary mr-2 mb-2 float-right">déconnexion

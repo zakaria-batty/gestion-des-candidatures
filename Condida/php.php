@@ -4,7 +4,6 @@ if (isset($_POST['poste'])) {
 
     $dir = "../image/";
     $target = $dir . basename($_FILES['cv']['name']);
-    $FileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
 
 
 
